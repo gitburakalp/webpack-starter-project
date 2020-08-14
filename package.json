@@ -1,0 +1,37 @@
+{
+  "name": "webpack-starter-project",
+  "version": "1.0.0",
+  "description": "Webpack starter project",
+  "main": ",",
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development --open",
+    "prod": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitburakalp/webpack-starter-project.git"
+  },
+  "keywords": [
+    "webpack",
+    "html",
+    "js",
+    "css",
+    "sass",
+    "webpack-dev-server"
+  ],
+  "author": "Burak Alp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gitburakalp/webpack-starter-project/issues"
+  },
+  "homepage": "https://github.com/gitburakalp/webpack-starter-project#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "babel-loader": "^8.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "path": "^0.12.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
