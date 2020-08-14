@@ -1,16 +1,31 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
-
 const devMode = process.env.NODE_ENV;
 
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
-  context: __dirname,
-  entry: './src/js/main.js',
+  entry: path.resolve(__dirname, 'src/js', 'main.js'),
   output: {
+    filename: 'js/bundle.min.js',
+    // filename: devMode == 'development' ? 'main.js' : 'bundle.min.js',
     path: path.resolve(__dirname, 'dist'),
-    // filename: devMode == 'development' ? 'main.js' : 'index.js',
-    filename: 'main.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+    ],
   },
 
-  plugins: [new HtmlWebPackPlugin()],
+  plugins: [
+    new HtmlWebPackPlugin(),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
+    }),
+  ],
 };
